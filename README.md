@@ -1,1 +1,1 @@
-This is a template repo for the field course "Data SCience and Machine Learning"
+This is a template repo for the field course "Data Science and Machine Learning"
