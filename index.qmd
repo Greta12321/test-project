@@ -7,6 +7,8 @@ bibliography: bibliography.bib
 
 # Example Repo
 
+https://github.com/schmoigl/test-project/
+
 This Quarto file is showcasing what Quarto can od. [This is a link](https://data-science.wifo.ac.at/lecture-notes/){target="_blank"} to the lecture notes.
 
 *bold text* **cursive**
