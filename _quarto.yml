@@ -1,0 +1,7 @@
+project: 
+    type: website
+format: 
+  html:
+    layout: article
+    css: style.css
+engine: Jupyter

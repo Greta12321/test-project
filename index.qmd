@@ -1,0 +1,32 @@
+---
+author: Lukas Schmoigl
+title: Quarto Example
+---
+
+
+# Example Repo
+
+This Quarto file is showcasing what Quarto can od. [This is a link](https://data-science.wifo.ac.at/lecture-notes/){target="_blank"} to the lecture notes.
+
+*bold text* **cursive**
+
+<a href="https://data-science.wifo.ac.at/lecture-notes/">Same link</a>
+
+![Images](img/wu.svg){width=200 fig-align="left"}
+
+
+```{r}
+#| eval: true
+#| output: false
+library(tidyverse)
+
+cases <- read_csv("data/cases.csv")
+```
+
+The first case is the case `{r} cases$case_nr[1]`
+
+```{r}
+#| eval: true
+#| output: true
+head(cases)
+```

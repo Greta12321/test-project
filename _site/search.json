@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Quarto Example",
+    "section": "",
+    "text": "Example Repo\nThis Quarto file is showcasing what Quarto can od. This is a link to the lecture notes.\nbold text cursive\nSame link\n\n\n\nImages\n\n\n\nlibrary(tidyverse)\n\ncases &lt;- read_csv(\"data/cases.csv\")\n\nThe first case is the case BG Telfs, 6 S 12/06m\n\nhead(cases)\n\n# A tibble: 6 × 4\n  case_nr                         case_link              case_address month     \n  &lt;chr&gt;                           &lt;chr&gt;                         &lt;dbl&gt; &lt;date&gt;    \n1 BG Telfs, 6 S 12/06m            https://edikte.justiz…         6410 2007-01-01\n2 LG Wiener Neustadt, 11 S 33/04w https://edikte.justiz…         2640 2007-01-01\n3 BG Bregenz, 19 S 1/07d          https://edikte.justiz…         6921 2007-01-01\n4 BG Favoriten, 41 S 20/06m       https://edikte.justiz…         1100 2007-01-01\n5 BG Linz, 26 S 101/06k           https://edikte.justiz…         4020 2007-01-01\n6 BG Josefstadt, 11 Se 10/06w     https://edikte.justiz…         1090 2007-01-01"
+  }
+]
