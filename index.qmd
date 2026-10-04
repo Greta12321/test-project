@@ -1,0 +1,99 @@
+---
+author: Lukas Schmoigl
+title: Quarto Example
+bibliography: bibliography.bib
+---
+
+
+# Example Repo
+
+https://github.com/schmoigl/test-project/
+
+This Quarto file is showcasing what Quarto can od. [This is a link](https://data-science.wifo.ac.at/lecture-notes/){target="_blank"} to the lecture notes.
+
+*bold text* **cursive**
+
+<a href="https://data-science.wifo.ac.at/lecture-notes/">Same link</a>
+
+![Images](img/wu.svg){width=200 fig-align="left"}
+
+
+$$ x_1 + x_2 $$
+
+As seen @eppel2024active
+
+```{r}
+#| eval: true
+#| output: true
+library(tidyverse)
+library(kableExtra)
+
+data <- read_csv("data/cases.csv")
+
+plot_data <- data %>%
+  separate(case_nr, c("court", "case_nr"), ", ") %>%
+  group_by(court, month) %>%
+  count(name = "cases") %>%
+  group_by(court) %>%
+  mutate(sum_cases = sum(cases, na.rm = TRUE)) %>%
+  filter(sum_cases > 100) %>%
+  ungroup()
+
+write_csv(plot_data, "data/plot_data.csv")
+
+plot_data %>%
+  filter(row_number() <= 15) %>%
+  kable("html")
+```
+
+The first case is the case `{r} data$case_nr[1]`
+
+```{ojs}
+viewof rating = Inputs.range([1, 10], {value: 5, step: 1, label: "Rating"})
+```
+
+I would rate this class `{ojs} rating`
+
+
+
+```{ojs}
+raw = FileAttachment("data/plot_data.csv")
+
+plot_data = raw.csv()
+
+plot_data
+
+new Set(plot_data.map(d => d.court))
+```
+
+```{ojs}
+import {vl} from "@vega/vega-lite-api"
+
+vl.markLine()
+  .encode(
+    vl.x()
+      .fieldT("month")
+      .axis({ grid: false }),
+    vl.y()
+      .fieldQ("cases"),
+  )
+  .data(plot_data.filter(d => d.court == court))
+//   .config(config)
+  .render({ renderer: "svg" })
+```
+
+```{ojs}
+viewof court = Inputs.select(
+  ["BG Favoriten", "BG Fünfhaus"], 
+  {label: "Select a court: "}
+  )
+
+viewof month = Inputs.select(
+  ["2008-01-01", "2009-01-01"], 
+  {label: "Select a year: "}
+  )
+
+numberOfCases = plot_data.filter(d => d.court == court && d.month == month).map(d => d.cases)
+```
+
+In the `{ojs} court` in the year `{ojs} month` the number of cases was `{ojs} numberOfCases`

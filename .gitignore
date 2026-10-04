@@ -1,3 +1,7 @@
 .claude/
 .vscode/
 keys/
+/.quarto/
+**/*.quarto_ipynb
+data/
+_site/
